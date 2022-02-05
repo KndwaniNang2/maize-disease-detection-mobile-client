@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"
-        android:layout_height="731dp"
+        android:layout_height="724dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -22,8 +22,18 @@
 
     <TextView
         android:id="@+id/textView"
+        android:layout_width="384dp"
+        android:layout_height="290dp"
+        android:text="TextView" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="TextView" />
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:visibility="visible"
+        tools:visibility="visible" />
+
 </androidx.cardview.widget.CardView>
 
