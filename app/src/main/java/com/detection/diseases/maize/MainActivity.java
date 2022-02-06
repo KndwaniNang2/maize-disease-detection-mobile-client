@@ -17,6 +17,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.io.OptionalDataException;
+
 public class MainActivity extends AppCompatActivity {
 private static final int PERMISSION_CODE = 10000;
     ImageView image;
@@ -32,6 +34,8 @@ Integer REQUEST_CAMERA=1, SELECT_FILE=0;
         image = findViewById(R.id.galler);
         capture = findViewById(R.id.cap);
         capture.setOnClickListener(new View.OnClickListener() {
+            private OptionalDataException grantResults;
+
             @Override
             public void onClick(View v) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
@@ -52,6 +56,16 @@ Integer REQUEST_CAMERA=1, SELECT_FILE=0;
             private void openCamera() {
             }
 
+            @Override
+            public int hashCode() {
+                return super.hashCode();
+
+
+            }
+
+            public void onRequestPermissionsResult(int requestCode, @NonNull String[] permission) {
+
+            }
         });
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
