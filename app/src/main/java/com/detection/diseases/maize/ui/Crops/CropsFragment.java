@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,20 +17,29 @@ import com.detection.diseases.maize.R;
 
 public class CropsFragment extends Fragment {
 
+
     private CropsViewModel cropsViewModel;
+
+    public void setImage(ImageView image) {
+
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         cropsViewModel =
                 new ViewModelProvider(this).get(CropsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_crops, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
+        final TextView image = root.findViewById(R.id.cap);
         cropsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                image.setText(s);
             }
+
         });
+
         return root;
     }
+
 }
