@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -17,6 +18,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
+private static final int PERMISSION_CODE = 10000;
     ImageView image;
     ImageView capture;
 Integer REQUEST_CAMERA=1, SELECT_FILE=0;
@@ -39,10 +41,17 @@ Integer REQUEST_CAMERA=1, SELECT_FILE=0;
                                     == PackageManager.PERMISSION_DENIED){
                         String [] permission = {Manifest.permission.CAMERA,
                                 Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                       requestPermissions(permission, PERMISSION_CODE);
 
                     };
+                }else {
+                    openCamera();
                 }
             }
+
+            private void openCamera() {
+            }
+
         });
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -52,6 +61,7 @@ Integer REQUEST_CAMERA=1, SELECT_FILE=0;
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
     }
 
 }
